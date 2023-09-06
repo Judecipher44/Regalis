@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Successful login', async ({ page }) => {
+test.only('Successful login', async ({ page }) => {
   await page.goto('https://dev.regalis.app/');
   await expect(page.getByText ('メールアドレス')).toBeVisible();
   await page.getByPlaceholder('メールアドレスを入力する').click();
@@ -76,7 +76,7 @@ test('Empty login', async ({ page }) => {
 
 });
 
-test.only('No input on fields', async ({ page }) => {
+test('No input on fields', async ({ page }) => {
   await page.goto('https://dev.regalis.app/');
   await expect(page.getByText ('メールアドレス')).toBeVisible();
   await expect (page.getByText('パスワード', { exact: true })).toBeVisible();

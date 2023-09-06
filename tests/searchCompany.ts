@@ -130,7 +130,7 @@ test.only('search by Company name', async ({ page }) => {
     await page.locator('div').filter({ hasText: /^フィルタリング中：該当1件$/ }).isVisible();
     await page.close();
   });
-  test.only('search by role', async ({ page }) => {
+  test('search role', async ({ page }) => {
     await page.goto('https://dev.regalis.app/');
     await page.getByPlaceholder('メールアドレスを入力する').click();
     await page.getByPlaceholder('メールアドレスを入力する').fill('shunwasaki144@gmail.com');

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('forgot password successful send email', async ({ page }) => {
+test.only('forgot password successful send email', async ({ page }) => {
   await page.goto('https://dev.regalis.app/');
   await page.getByRole('button', { name: 'パスワードをお忘れの方?' }).click();
   await page.getByText('パスワードをお忘れですか', { exact: true }).isVisible();
