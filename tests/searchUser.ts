@@ -62,12 +62,15 @@ test('search user by name', async ({ page }) => {
         await page.getByText('ユーザーアカウント').isVisible();
         await page.getByText('ユーザーアカウント').click();
         await page.getByRole('heading', { name: 'ユーザーリスト' }).isVisible();
-        await page.locator('#rc_select_6').isVisible();
-        await page.locator('#rc_select_6').click();
-        await page.getByRole('option', { name: '管理者' }).getByText('管理者').click();
+        await page.locator('#rc_select_0').click();
+        await page.getByTitle('管理者').getByText('管理者').click();
+        // await page.locator('#rc_select_0').click();
+        // await page.getByText('読み取り専用').click();
+        // await page.locator('#rc_select_0').click();
+       // await page.getByTitle('一般').getByText('一般').click();
         await page.getByRole('button', { name: 'search 検索' }).click();
         await page.close();
-    
+  
     
         });
         test('search user by affilation', async ({ page }) => {
@@ -85,7 +88,7 @@ test('search user by name', async ({ page }) => {
           await page.getByRole('heading', { name: 'ユーザーリスト' }).isVisible();
           await page.getByPlaceholder('所属').isVisible();
           await page.getByPlaceholder('所属').click();
-          await page.getByPlaceholder('所属').fill('LANEX');
+          await page.getByPlaceholder('所属').fill('admin');
           await page.getByRole('button', { name: 'search 検索' }).click();
           await page.close();
       
@@ -131,7 +134,7 @@ test('search user by name', async ({ page }) => {
               await page.close();
           
               });
-              test('No results found', async ({ page }) => {
+              test.only('No results found', async ({ page }) => {
                 await page.goto('https://dev.regalis.app/');
                 await expect(page.getByText ('メールアドレス')).toBeVisible();
                 await page.getByPlaceholder('メールアドレスを入力する').click();

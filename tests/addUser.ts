@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('add user manager', async ({ page }) => {
+test.only('add user manager', async ({ page }) => {
     await page.goto('https://dev.regalis.app/');
     await expect(page.getByText ('メールアドレス')).toBeVisible();
     await page.getByPlaceholder('メールアドレスを入力する').isVisible();
@@ -82,7 +82,7 @@ test('add user manager', async ({ page }) => {
     await page.close();
     });
 
-    test.only('add user generally', async ({ page }) => {
+    test('add user generally', async ({ page }) => {
         await page.goto('https://dev.regalis.app/');
         await expect(page.getByText ('メールアドレス')).toBeVisible();
         await page.getByPlaceholder('メールアドレスを入力する').isVisible();

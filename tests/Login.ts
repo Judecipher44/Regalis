@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.only('Successful login', async ({ page }) => {
+test('Successful login', async ({ page }) => {
   await page.goto('https://dev.regalis.app/');
   await expect(page.getByText ('メールアドレス')).toBeVisible();
   await page.getByPlaceholder('メールアドレスを入力する').click();
